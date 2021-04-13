@@ -255,7 +255,7 @@
         </div>
     </main>
     <footer>
-        <div class="footer-all-container">
+        <div class="container">
             <div class="footer-Selector">
                 <div class="footer-Selector-Menu new">
                     <h4>最新動向</h4>
@@ -347,7 +347,9 @@
         let autoBtns = document.querySelectorAll(".auto-btn");
         let swiperNumber = 1;
         let BtnIndex = 1;
-        showSwiper(swiperNumber)        
+        let AutoPlay
+        showSwiper(swiperNumber)   
+        AutoPicturePlay()     
         function swiper(n){
             showSwiper(swiperNumber += n)
         }
@@ -360,10 +362,6 @@
                 pictures[swiperNumber-1].classList.add("active")
                 BtnIndexHnadler()
             }  
-        }
-
-        function picturePlayHandler(){
-            this.classList.toggle("active")
         }
         function autoBtnHandler(){
             autoBtns.forEach(autoBtn => autoBtn.classList.remove("active"))
@@ -379,6 +377,25 @@
         function BtnHandler(n){
             swiperNumber = n;
             showSwiper(swiperNumber)
+        }
+
+        function picturePlayHandler(){
+            if(this.classList.contains("active")){
+                this.classList.remove("active")
+                AutoPicturePlay()
+            }
+            else{
+                this.classList.add("active")
+                clearInterval(AutoPlay)
+            }
+        }
+        function AutoPicturePlay(){
+            let i = 1; 
+            AutoPlay =  setInterval(() => {
+                BtnHandler(i)
+                i++;                
+                i = i > 2 ? 1 : i;
+            }, 5000);   
         }
         autoBtns.forEach(autoBtn => autoBtn.addEventListener("click",autoBtnHandler))
         picturePlay.addEventListener("click",picturePlayHandler)
