@@ -10,19 +10,32 @@ body{
     width: 100%;
     min-height: 100vh;
 }
-nav,main,footer{
+/* nav,main,footer{
     padding: 0 70px;
-}
+} */
 nav{
     width: 100%;
     height: 55px;
 }
 .container{
-    width: 100%;
+    width: 1600px;
     height: 100%;
     margin: auto;
     display: flex;
     justify-content: space-between;
+}
+.nav-menu{
+    display: none;
+}
+/* --------media-860px = display:block midea-860-menu------------ */
+.midea-860-menu{
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: .5s;
 }
 /* ---------------------left-nav-links-------------------- */
 .left-nav-links{
@@ -133,10 +146,12 @@ main>.container{
 /* ---------------------swiper button------------------------- */
 
 .previous,.next{
-    padding: 10px 20px;
+    width: 40px;
+    height: 40px;
     font-size: 30px;
     border-radius: 50%;
     background: white;
+    color: rgb(194, 181, 181);
     border: none;
     opacity: 0;
     display: flex;
@@ -256,6 +271,10 @@ main>.container{
         opacity: 1;
         left: 100px;
     }
+}
+.picture-content>h1{
+    font-size: 40px;
+    font-weight: 500;
 }
 .picture-content>p{
     margin-top: 20px;
@@ -490,7 +509,7 @@ footer .container{
 
 /* --------footer-about-left------ */
 .footer-about-left{
-    width: 50%;
+    width: 15%;
 }
 .footer-about-left>ul{
     display: flex;
@@ -517,7 +536,7 @@ footer .container{
 
 /* -------footer-about-right--------- */
 .footer-about-right{
-    width: 50%;
+    width: 85%;
 }
 .footer-about-right>ul{
     display: flex;
@@ -540,23 +559,299 @@ footer .container{
 .footer-right-li:hover>a{
     border-bottom: 1px solid rgba(99, 91, 91, .8);
 }
-@media(max-width: 1920px)
+@media(max-width: 1800px)
 {
-    
+    .container{
+        width: 100%;
+        padding: 0 5%;
+    }
+    .link{
+        margin: 0 10px;   
+    }
+    footer .container{
+        padding: 40px 5% 20px 5%;
+    }
 }
 @media(max-width: 1366px)
 {
-
+/* ----------------------nav------------------------- */
+    .opation{
+        width: unset;
+    }
+    .opation.search{
+        padding: 0 9px;
+        margin: 0 6px;
+    }
+    .opation:not(:first-child)>a{
+        display: none;
+    }
+    .opation.user>.fa{
+        margin: 8px;
+    }
+/* ----------------------main ------------------- */
+    .picture-content h1{
+        font-size: 25px;
+    }
 }
 @media(max-width: 1080px)
 {
+/* -----------------nav footer------------------- */
+    nav{
+        padding: 0 30px;
+    }
+/* -------------------container------------------ */
+    .container{
+        width: 100%;
+        padding: 0;
+    }
+    footer .container{
+        padding: 40px 30px 20px 30px;
+    }
+/* -----------------------.main-shop-and-download------------------ */
+    .main-shop-and-download{
+        padding: 0 50px;
+        justify-content: flex-start;
+        flex-flow:row wrap;
+    }
+    .topSecond{
+        width: calc(50% - 10px);
+        margin-right: 20px;
+    }
+    .topSecond:nth-child(2){
+        margin-right: 0;
+    }
+    .topSecond:nth-child(4){
+        margin-right: 0;
+    }
+/* ---------- main-shop-second ------------ */
+    .main-shop-second>h1{
+        margin-left: 50px;
+    }
+/* ----------- main-bot-------------- */
+    .main-bot{
+        margin-left: 30px;
+    }
+/* ------footer-Selector-Menu------- */
+    .footer-Selector{
+        display: grid;
+        grid-template-columns: repeat(3,2fr);
+        grid-template-rows: repeat(2, 2fr);
+    }
+/* --------- footer-about-----------*/
+    .footer-about{
+        margin-top: 30px;
+    }
 }
 @media(max-width: 860px)
 {
+    nav{
+        padding: 0;
+    }
+    nav .container{
+        position: relative;
+    }
+    .nav-menu{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        color: black;
+        cursor: pointer;
+    }
+    .nav-menu::before{
+        content: '\f0c9';
+        font-family: 'Font Awesome 5 free';
+        font-weight: 600;
+        font-size: 20px;
+    }
+    .nav-menu.active::before{
+        content: '\f00d';
+        font-family: 'Font Awesome 5 free';
+        font-weight: 600;
+        font-size: 20px;
+    }
+/* --------media-860px = display:block midea-860-menu------------ */
+    .midea-860-menu.active{
+        display: block;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background: rgb(245, 239, 239);
+        z-index: 20;
+        overflow: hidden;
+        visibility: visible;
+        border-bottom: 1px solid #000;
+    }
+    .midea-860-menu.active>ul{
+        width: 100%;
+        cursor: pointer;
+    }
+    .midea-link{
+        padding: 20px 10px;
+        border-top: 1px solid rgba(121, 119, 119, 0.4);
+    }
+    .midea-link:active{
+        border-top: 1px dashed#000;
+        border-bottom: 1px dashed #000;
+    }
+    .midea-link>a{
+        color: rgba(0, 0, 0, 0.6);
+    }
+    .midea-link.more-link{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+/* --------------------left---------------- */
+    .link:not(:first-child){
+        display: none;
+    }
+    .link.logo{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+/* --------------------right---------------- */
+    .opation.All-microsoft{
+        display: none;
+    }
+    .opation.search{
+        position: absolute;
+        top: 50%;
+        left: 50px;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+    }
 }
 @media(max-width: 768px)
 {
+    .swiper-selector{
+        box-sizing: content-box;
+        height: 100%;
+    }
+    .swiper{
+        box-sizing: content-box;
+        height: 100%;
+    }
+    .pictures.active{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .picture-content{
+        position: static;
+        padding: 100px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(-5px);
+        background: rgb(223, 218, 218);
+    }
+/* ---------.main-top-------- */
+    .selector-windows{
+        padding: 30px 0;
+    }
+    .selector-windows>ul{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .windows-topImg{
+        margin: 20px 0;
+        flex-direction: row;
+    }
+    .windows-topImg>img{
+        width: 20px;
+        height: 20px;
+        margin: 0 10px;
+    }
+/* ---------- main-shop-second ------------ */
+    .main-shop-second>h1{
+        margin-left: 30px;
+    }
+/* ------------------- main-shop-and-download-------------------*/
+    .main-shop-and-download{
+        padding: 0 30px;
+    }
+/* ----------.main-mid---------- */
+
+    .main-mid{
+        height: 100%;
+        box-sizing: content-box;
+    }
+    .mid-content{
+        position: static;
+        background: rgb(211, 209, 209);
+        width: 100%;
+        padding: 100px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translate(0,-10px);
+    }
+/* ------------footer-about--------- */
+    .footer-about{
+        display: block;
+    }
+    .footer-about-left{
+        width: 100%;
+    }
+    .footer-about-right{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .footer-about-right>ul{
+        justify-content: flex-start;
+    }
+    .footer-right-li{
+        padding-right: 10px;
+        padding-bottom: 6px;
+    }
+    .footer-right-li>a{
+        font-size: 12px;
+    }
 }
-@media(max-width: 500px)
+@media(max-width: 540px)
 {
+/* -------.main-shop-and-download-------- */
+    .main-shop-and-download{
+        justify-content: center; 
+    }
+    .topSecond{
+        width: 100%;
+        margin-right: 0;
+    }
+    .topSecond:not(:last-child){
+        margin-right: 0;
+    }
+/* ------footer-Selector-Menu------- */
+    .footer-Selector{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-content: flex-start;
+    }
+    .footer-Selector-Menu:not(:first-child){
+        margin-top: 50px;
+    }
+    .footer-about-right>ul{
+        justify-content: space-between;
+    }
+    .footer-right-li{
+        padding: 0;
+    }
+}
+@media(max-width: 500px){
+    .footer-about-right>ul{
+        flex-flow:row wrap;
+        justify-content: flex-start;
+    }
+    .footer-right-li{
+        padding-right: 10px;
+        padding-bottom: 6px;
+    }
 }

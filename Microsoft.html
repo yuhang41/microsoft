@@ -5,12 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/Microsoft.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous"/>
     <title>Microsoft</title>
 </head>
 <body>
     <nav>
         <div class="container">
+            <div class="nav-menu"></div>
+            <div class="midea-860-menu">
+                <ul>
+                    <li class="midea-link"><a href="#">Microsoft 365</a></li>
+                    <li class="midea-link"><a href="#">office</a></li>
+                    <li class="midea-link"><a href="#">Windows</a></li>
+                    <li class="midea-link"><a href="#">Suerface</a></li>
+                    <li class="midea-link"><a href="#">Xbox</a></li>
+                    <li class="midea-link"><a href="#">支援</a></li>
+                    <li class="midea-link more-link">
+                        <a href="#">軟體</a>
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </li>
+                    <li class="midea-link more-link">
+                        <a href="#">個人電腦設備</a>
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </li>
+                    <li class="midea-link more-link">
+                        <a href="#">娛樂</a>
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </li>
+                    <li class="midea-link more-link">
+                        <a href="#">商務適用</a>
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </li>
+                    <li class="midea-link more-link">
+                        <a href="#">Devloper & IT</a>
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </li>
+                    <li class="midea-link more-link">
+                        <a href="#">其他</a>
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </li>
+                    <li class="midea-link"><a href="#">檢視網站地圖</a></li>
+    
+                </ul>
+            </div>
             <div class="left-nav-links">
                 <ul>
                     <li class="link logo">
@@ -51,7 +88,7 @@
                 </div>
                 <div class="opation user">
                     <a href="#">登入</a>
-                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <i class="fa fa-user-circle"></i>
                 </div>
             </div>
         </div>
@@ -345,6 +382,8 @@
         let pictures =document.querySelectorAll(".pictures");
         let picturePlay = document.querySelector(".picture-play");
         let autoBtns = document.querySelectorAll(".auto-btn");
+        let navMenu = document.querySelector(".nav-menu")
+        let mideaMenu =document.querySelector(".midea-860-menu")
         let swiperNumber = 1;
         let BtnIndex = 1;
         let AutoPlay
@@ -397,8 +436,13 @@
                 i = i > 2 ? 1 : i;
             }, 5000);   
         }
+        function navMenuHandler(){
+            this.classList.toggle("active")
+            mideaMenu.classList.toggle("active")
+        }
         autoBtns.forEach(autoBtn => autoBtn.addEventListener("click",autoBtnHandler))
         picturePlay.addEventListener("click",picturePlayHandler)
+        navMenu.addEventListener("click",navMenuHandler)
     </script>
 </body>
 </html>
